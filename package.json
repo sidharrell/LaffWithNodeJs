@@ -1,0 +1,7 @@
+{
+  "name": "laffWnode",
+  "version": "0.1.0",
+  "description": "my learning node project",
+  "scripts": { "test": "nodejs test/all.js"},
+  "devDependencies": { "test": ">=0.0.5" }
+}
