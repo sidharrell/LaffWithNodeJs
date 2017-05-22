@@ -12,6 +12,12 @@ module.exports = {
     this.length = function () {
       return this.elements.length;
     }
+    this.scale = function (scalingfactor) {
+      fLen = this.length();
+      for (i = 0; i < fLen; i++) {
+        this.elements[i] *= scalingfactor;
+      }
+    }
     this.add = function (vector) {
       fLen = this.length();
       if (fLen !== vector.length()) {

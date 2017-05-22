@@ -12,6 +12,9 @@ exports['test that logs all failures'] = function(assert) {
   vector.add(vector2);
   assert.equal(vector.elements[0], 13, 'test x after addition method');
   assert.equal(vector.elements[1], 24, 'test y after addition method')
+  vector.scale(10);
+  assert.equal(vector.elements[0], 130, 'test x after scaling method');
+  assert.equal(vector.elements[1], 240, 'test y after scaling method')
 }
 
 if (module == require.main) require('test').run(exports)
