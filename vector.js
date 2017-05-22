@@ -1,13 +1,25 @@
 module.exports = {
-    Vector: function (x, y) {
-    this.x = x;
-    this.y = y;
+    Vector: function (elements) {
+    this.elements = elements;
+    this.magnitude = function () {
+      sum = 0;
+      fLen = this.length();
+      for (i = 0; i < fLen; i++) {
+        sum += this.elements[i] * this.elements[i];
+      }
+      return Math.sqrt(sum);
+    }
     this.length = function () {
-      return Math.sqrt(this.x * this.x + this.y * this.y);
+      return this.elements.length;
     }
     this.add = function (vector) {
-      this.x += vector.x;
-      this.y += vector.y;
+      fLen = this.length();
+      if (fLen !== vector.length()) {
+        return "error, cannot add vectors of unequal length";
+      }
+      for (i = 0; i < fLen; i++) {
+        this.elements[i] += vector.elements[i];
+      }
     }
   }
 };

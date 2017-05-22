@@ -1,14 +1,17 @@
 // using assert passed to the test function that just logs failures
 exports['test that logs all failures'] = function(assert) {
   var vectors = require('../vector.js');
-  var vector = new vectors.Vector(3, 4);
-  assert.equal(vector.x, 3, 'test x assignment and retrieval');
-  assert.equal(vector.y, 4, 'test y assignment and retrieval');
-  assert.equal(vector.length(), 5, 'test length method');
-  var vector2 = new vectors.Vector(10, 20);
+  var testelements = [3, 4];
+  var vector = new vectors.Vector(testelements);
+  assert.equal(vector.elements[0], 3, 'test x assignment and retrieval');
+  assert.equal(vector.elements[1], 4, 'test y assignment and retrieval');
+  assert.equal(vector.length(), 2, 'test length method');
+  assert.equal(vector.magnitude(), 5, 'test magnitude method');
+  var testelements2 = [10, 20]
+  var vector2 = new vectors.Vector(testelements2);
   vector.add(vector2);
-  assert.equal(vector.x, 13, 'test x after addition method');
-  assert.equal(vector.y, 24, 'test y after addition method')
+  assert.equal(vector.elements[0], 13, 'test x after addition method');
+  assert.equal(vector.elements[1], 24, 'test y after addition method')
 }
 
 if (module == require.main) require('test').run(exports)
