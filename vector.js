@@ -26,6 +26,15 @@ function Vector(elements) {
       this.elements[i] += vector.elements[i];
     }
   }
+  this.axpy = function (vector, scalar) {
+    fLen = this.length();
+    if (fLen !== vector.length()) {
+      return "error, cannot axpy vectors of unequal length";
+    }
+    for (i = 0; i < fLen; i++) {
+      this.elements[i] += vector.elements[i] * scalar;
+    }
+  }
 }
 function VectorFactory() {
   this.createVector = function ( elements ) {

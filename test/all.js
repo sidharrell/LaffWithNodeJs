@@ -20,6 +20,14 @@ exports['test that logs all failures'] = function(assert) {
   vectorcopy = vectorfactory.copyVector( vector );
   assert.equal(vectorcopy.elements[0], 130, 'test x after copy method');
   assert.equal(vectorcopy.elements[1], 240, 'test y after copy method');
+  var testelements3 = [-1, 2, 1];
+  var testelements4 = [-2, 3, -3];
+  var vector3 = vectorfactory.createVector( testelements3 );
+  var vector4 = vectorfactory.createVector( testelements4 );
+  vector4.axpy( vector3, 2 );
+  assert.equal(vector4.elements[0], -4, 'test x after axpy method');
+  assert.equal(vector4.elements[1], 7, 'test y after axpy method');
+  assert.equal(vector4.elements[2], -1, 'test z after axpy method')
 }
 
 if (module == require.main) require('test').run(exports)
