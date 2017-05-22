@@ -35,6 +35,17 @@ function Vector(elements) {
       this.elements[i] += vector.elements[i] * scalar;
     }
   }
+  this.dot = function (vector) {
+    fLen = this.length();
+    if (fLen !== vector.length()) {
+      return "error, cannot dot vectors of unequal length";
+    }
+    sum = 0;
+    for (i = 0; i < fLen; i++) {
+      sum += vector.elements[i] * this.elements[i];
+    }
+    return sum;
+  }
 }
 function VectorFactory() {
   this.createVector = function ( elements ) {
