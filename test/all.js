@@ -33,6 +33,23 @@ exports['test that logs all failures'] = function(assert) {
   var vector5 = vectorfactory.createVector( testelements5 );
   var vector6 = vectorfactory.createVector( testelements6 );
   assert.equal(vector5.dot(vector6), 0, 'test dot method');
+
+  var matrix = require('../matrix.js');
+  var testelements = [1, 2, 3, 4];
+  var testelements2 = [5, 6, 7, 8];
+  var vector1 = vectorfactory.createVector( testelements );
+  var vector2 = vectorfactory.createVector( testelements2 );
+  var matrixfactory = new matrix.MatrixFactory();
+  var matrix1 = matrixfactory.createMatrix( [ vector1, vector2 ]);
+  //console.log( matrix1.columns );
+  assert.equal(matrix1.columns[0].elements[0], 1, 'test (0,0) assignment and retrieval');
+  assert.equal(matrix1.columns[0].elements[1], 2, 'test (0,1) assignment and retrieval');
+  assert.equal(matrix1.columns[0].elements[2], 3, 'test (0,2) assignment and retrieval');
+  assert.equal(matrix1.columns[0].elements[3], 4, 'test (0,3) assignment and retrieval');
+  assert.equal(matrix1.columns[1].elements[0], 5, 'test (1,0) assignment and retrieval');
+  assert.equal(matrix1.columns[1].elements[1], 6, 'test (1,1) assignment and retrieval');
+  assert.equal(matrix1.columns[1].elements[2], 7, 'test (1,2) assignment and retrieval');
+  assert.equal(matrix1.columns[1].elements[3], 8, 'test (1,3) assignment and retrieval');
 }
 
 if (module == require.main) require('test').run(exports)
