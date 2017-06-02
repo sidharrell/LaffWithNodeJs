@@ -73,6 +73,17 @@ exports['test that logs all failures'] = function(assert) {
   assert.equal(matrix1.columns[1].elements[1], 22, 'test (1,1) after matrix addition');
   assert.equal(matrix1.columns[1].elements[2], 24, 'test (1,2) after matrix addition');
   assert.equal(matrix1.columns[1].elements[3], 26, 'test (1,3) after matrix addition');
+
+  var matrix3 = matrixfactory.transposeMatrix( matrix1 );
+
+  assert.equal(matrix3.columns[0].elements[0], 11, 'test (0,0) after matrix transposition');
+  assert.equal(matrix3.columns[1].elements[0], 14, 'test (0,1) after matrix transposition');
+  assert.equal(matrix3.columns[2].elements[0], 16, 'test (0,2) after matrix transposition');
+  assert.equal(matrix3.columns[3].elements[0], 18, 'test (0,3) after matrix transposition');
+  assert.equal(matrix3.columns[0].elements[1], 20, 'test (1,0) after matrix transposition');
+  assert.equal(matrix3.columns[1].elements[1], 22, 'test (1,1) after matrix transposition');
+  assert.equal(matrix3.columns[2].elements[1], 24, 'test (1,2) after matrix transposition');
+  assert.equal(matrix3.columns[3].elements[1], 26, 'test (1,3) after matrix transposition');
 }
 
 if (module == require.main) require('test').run(exports)
