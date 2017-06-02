@@ -50,6 +50,23 @@ exports['test that logs all failures'] = function(assert) {
   assert.equal(matrix1.columns[1].elements[1], 6, 'test (1,1) assignment and retrieval');
   assert.equal(matrix1.columns[1].elements[2], 7, 'test (1,2) assignment and retrieval');
   assert.equal(matrix1.columns[1].elements[3], 8, 'test (1,3) assignment and retrieval');
+  var testelements = [10, 12, 13, 14];
+  var testelements2 = [15, 16, 17, 18];
+  var vector1 = vectorfactory.createVector( testelements );
+  var vector2 = vectorfactory.createVector( testelements2 );
+  var matrix2 = matrixfactory.createMatrix( [ vector1, vector2 ]);
+  //console.log( matrix1.columns );
+  //console.log( matrix2.columns );
+  matrix1.add( matrix2 );
+  //console.log( matrix1.columns );
+  assert.equal(matrix1.columns[0].elements[0], 11, 'test (0,0) after matrix addition');
+  assert.equal(matrix1.columns[0].elements[1], 14, 'test (0,1) after matrix addition');
+  assert.equal(matrix1.columns[0].elements[2], 16, 'test (0,2) after matrix addition');
+  assert.equal(matrix1.columns[0].elements[3], 18, 'test (0,3) after matrix addition');
+  assert.equal(matrix1.columns[1].elements[0], 20, 'test (1,0) after matrix addition');
+  assert.equal(matrix1.columns[1].elements[1], 22, 'test (1,1) after matrix addition');
+  assert.equal(matrix1.columns[1].elements[2], 24, 'test (1,2) after matrix addition');
+  assert.equal(matrix1.columns[1].elements[3], 26, 'test (1,3) after matrix addition');
 }
 
 if (module == require.main) require('test').run(exports)

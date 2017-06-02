@@ -6,7 +6,7 @@ function Matrix(columns) {
   // scale the matrix by a scalar
   this.scale = function (scalingfactor) {
     cLen = this.numColumns();
-    for (i = 0; i < cLen; i++) {
+    for (var i = 0; i < cLen; i++) {
       this.columns[i].scale(scalingfactor);
     }
   }
@@ -17,9 +17,10 @@ function Matrix(columns) {
     if (cLen !== matrix.numColumns()) {
       return "error, cannot add matricies of unequal size";
     }
-    for (i = 0; i < cLen; i++) {
+    for (var i = 0; i < cLen; i++) {
       this.columns[i].add(matrix.columns[i]);
     }
+
   }
 
   this.numColumns = function () {

@@ -21,7 +21,7 @@ function Vector(elements) {
   // scale the vector by a scalar
   this.scale = function (scalingfactor) {
     fLen = this.length();
-    for (i = 0; i < fLen; i++) {
+    for (var i = 0; i < fLen; i++) {
       this.elements[i] *= scalingfactor;
     }
   }
@@ -32,7 +32,7 @@ function Vector(elements) {
     if (fLen !== vector.length()) {
       return "error, cannot add vectors of unequal length";
     }
-    for (i = 0; i < fLen; i++) {
+    for (var i = 0; i < fLen; i++) {
       this.elements[i] += vector.elements[i];
     }
   }
@@ -43,7 +43,7 @@ function Vector(elements) {
     if (fLen !== vector.length()) {
       return "error, cannot axpy vectors of unequal length";
     }
-    for (i = 0; i < fLen; i++) {
+    for (var i = 0; i < fLen; i++) {
       this.elements[i] += vector.elements[i] * scalar;
     }
   }
