@@ -23,6 +23,26 @@ function Matrix(columns) {
 
   }
 
+  this.multiplyByVector = function ( vector ) {
+    var vectors = require('./vector.js');
+    var vectorfactory = new vectors.VectorFactory();
+
+    var cLen = this.numColumns();
+    if (cLen !== vector.length()) {
+      return "error, cannot multiply a matrix by a vector whose length " +
+      "does not match the matrix width.";
+    }
+    var newvectorelements = [];
+    for (var i = 0; i < cLen; i++) {
+      newvectorelements[i] = 0;
+    }
+    var newvector = vectorfactory.createVector( newvectorelements );
+    for (var i = 0; i < cLen; i++) {
+      newvector.axpy( this.columns[i], vector.elements[i] );
+    }
+    return newvector ;
+  }
+
   this.numColumns = function () {
     return this.columns.length;
   }

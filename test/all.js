@@ -84,6 +84,17 @@ exports['test that logs all failures'] = function(assert) {
   assert.equal(matrix3.columns[1].elements[1], 22, 'test (1,1) after matrix transposition');
   assert.equal(matrix3.columns[2].elements[1], 24, 'test (1,2) after matrix transposition');
   assert.equal(matrix3.columns[3].elements[1], 26, 'test (1,3) after matrix transposition');
+
+  var matrix3 = matrixfactory.createMatrix(
+    [ vectorfactory.createVector( [-1, 2, 3] ),
+      vectorfactory.createVector( [0, -1, 1] ),
+      vectorfactory.createVector( [2, 1, -1]) ]);
+  var vector3 = vectorfactory.createVector( [-1, 2, 1]);
+
+  var vector4 = matrix3.multiplyByVector( vector3 );
+  assert.equal(vector4.elements[0], 3, 'test element 0 after matrix vector multiplication');
+  assert.equal(vector4.elements[1], -3, 'test element 1 after matrix vector multiplication');
+  assert.equal(vector4.elements[2], -2, 'test element 2 after matrix vector multiplication');
 }
 
 if (module == require.main) require('test').run(exports)
